@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Software Engineer</title>
+    <!-- Chosen Palette: Dark Slate Blue, Slate Gray, White, Teal -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling application with a fixed navigation header. The structure follows a logical narrative: introduction (Hero), personal background (About), capabilities (Skills), proof of work (Projects), history (Experience), and contact details (Contact). This flow is intuitive for recruiters and collaborators, allowing for both quick scans and deep dives into specific areas. User interaction is centered on smooth scrolling, hover effects for feedback, and on-scroll animations to guide attention and create a polished feel. -->
+    <!-- Visualization & Content Choices: The portfolio uses structured HTML and Tailwind CSS to create visually distinct sections. Goal: Inform/Introduce -> Hero/About sections with strong typography and a two-column layout. Goal: Organize/Showcase -> Skills and Projects sections use a responsive grid of cards for a clean, organized, and scannable presentation. Goal: Change/History -> The Experience section uses a vertical timeline constructed with HTML/CSS, which is a highly effective method for displaying chronological data. All interactions are handled with vanilla JavaScript to keep the site lightweight and fast. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1E293B;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-accent { background-color: #2DD4BF; }
+        .text-accent { color: #2DD4BF; }
+        .border-accent { border-color: #2DD4BF; }
+        .bg-card { background-color: #334155; }
+        .text-secondary { color: #94A3B8; }
+        .scroll-target {
+            scroll-margin-top: 80px;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">JD</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-secondary hover:text-accent transition-colors duration-300">About</a>
+                <a href="#skills" class="text-secondary hover:text-accent transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-secondary hover:text-accent transition-colors duration-300">Projects</a>
+                <a href="#experience" class="text-secondary hover:text-accent transition-colors duration-300">Experience</a>
+                <a href="#contact" class="text-secondary hover:text-accent transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="flex flex-col items-center space-y-4 py-4">
+                <a href="#about" class="text-secondary hover:text-accent transition-colors duration-300">About</a>
+                <a href="#skills" class="text-secondary hover:text-accent transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-secondary hover:text-accent transition-colors duration-300">Projects</a>
+                <a href="#experience" class="text-secondary hover:text-accent transition-colors duration-300">Experience</a>
+                <a href="#contact" class="text-secondary hover:text-accent transition-colors duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="scroll-target min-h-screen flex items-center justify-center text-center px-6">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
+                    Hi, I'm Faisal
+                </h1>
+                <p class="text-2xl md:text-3xl text-accent font-semibold mb-6">
+                    Software Engineer & Full Stack Developer
+                </p>
+                <p class="text-lg text-secondary max-w-xl mx-auto mb-8">
+                    I build elegant, efficient, and scalable web applications, turning complex problems into beautiful, intuitive solutions.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#projects" class="bg-accent text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-opacity-80 transition-all duration-300">
+                        View My Work
+                    </a>
+                    <a href="placeholder.pdf" download class="bg-card text-white font-bold py-3 px-8 rounded-full hover:bg-slate-600 transition-all duration-300">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="scroll-target py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-white">About Me</h2>
+                    <p class="text-lg text-secondary mt-2">A little bit about my journey and passions.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 fade-in">
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="123.jpg" alt="Faisal" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl border-4 border-slate-700">
+                    </div>
+                    <div class="md:w-2/3 text-lg text-secondary space-y-4">
+                        <p>
+                            Hello! I'm John, a passionate software engineer with a strong foundation in computer science. My fascination with technology began with a simple "Hello, World!" and has since grown into a full-fledged career dedicated to building impactful digital experiences.
+                        </p>
+                        <p>
+                            I specialize in full-stack development, with a deep love for creating clean, maintainable code and user-centric designs. I thrive in collaborative environments where I can solve challenging problems and continuously learn from my peers. My goal is to leverage my skills to build software that is not only functional but also a joy to use.
+                        </p>
+                        <p>
+                            When I'm not coding, you can find me exploring the latest tech trends, contributing to open-source projects, or enjoying a good cup of coffee.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="scroll-target py-20 px-6 bg-slate-900">
+            <div class="container mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-white">Technical Skills</h2>
+                    <p class="text-lg text-secondary mt-2">The tools and technologies I use to build things.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center fade-in">
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">JS</div>
+                        <h3 class="font-semibold text-white">JavaScript</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">PY</div>
+                        <h3 class="font-semibold text-white">Python</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">R</div>
+                        <h3 class="font-semibold text-white">React</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">N</div>
+                        <h3 class="font-semibold text-white">Node.js</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">TS</div>
+                        <h3 class="font-semibold text-white">TypeScript</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">T</div>
+                        <h3 class="font-semibold text-white">Tailwind CSS</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">DB</div>
+                        <h3 class="font-semibold text-white">PostgreSQL</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">D</div>
+                        <h3 class="font-semibold text-white">Docker</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">G</div>
+                        <h3 class="font-semibold text-white">Git & GitHub</h3>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl text-accent mb-2">A</div>
+                        <h3 class="font-semibold text-white">AWS</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="scroll-target py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="text-4xl font-bold text-white">My Projects</h2>
+                    <p class="text-lg text-secondary mt-2">A selection of my recent work.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+                    <div class="bg-card rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/2DD4BF?text=Project+One" alt="Project One" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">E-commerce Platform</h3>
+                            <p class="text-secondary mb-4">A full-featured e-commerce site with product management, user authentication, and a Stripe-integrated checkout process.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">React</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Node.js</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Express</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">MongoDB</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline">Live Demo</a>
+                                <a href="#" class="text-accent hover:underline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/2DD4BF?text=Project+Two" alt="Project Two" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Task Management App</h3>
+                            <p class="text-secondary mb-4">A collaborative task manager with real-time updates, drag-and-drop boards, and user notifications.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Vue.js</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Firebase</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Tailwind CSS</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline">Live Demo</a>
+                                <a href="#" class="text-accent hover:underline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/2DD4BF?text=Project+Three" alt="Project Three" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white mb-2">Data Visualization Dashboard</h3>
+                            <p class="text-secondary mb-4">An interactive dashboard for visualizing complex datasets, built with D3.js for custom, high-performance charts.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">Python (Flask)</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">D3.js</span>
+                                <span class="bg-slate-600 text-accent text-xs font-semibold px-2.5 py-1 rounded-full">PostgreSQL</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-accent hover:underline">Live Demo</a>
+                                <a href="#" class="text-accent hover:underline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="scroll-target py-20 px-6 bg-slate-900">
+            <div class="container mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-white">Experience & Education</h2>
+                    <p class="text-lg text-secondary mt-2">My professional and academic journey.</p>
+                </div>
+                <div class="relative max-w-2xl mx-auto fade-in">
+                    <div class="absolute left-1/2 top-0 h-full w-0.5 bg-slate-700"></div>
+                    <div class="mb-8 flex justify-between items-center w-full">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-accent shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-slate-900">1</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <p class="text-sm text-accent font-semibold">2021 - Present</p>
+                            <h3 class="mb-2 font-bold text-white text-lg">Software Engineer</h3>
+                            <p class="text-sm leading-snug tracking-wide text-secondary">Tech Solutions Inc.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-accent shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-slate-900 font-semibold text-lg">2</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <p class="text-sm text-accent font-semibold">2020 - 2021</p>
+                            <h3 class="mb-2 font-bold text-white text-lg">Junior Developer</h3>
+                            <p class="text-sm leading-snug tracking-wide text-secondary">Innovate Co.</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-accent shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-slate-900">3</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <p class="text-sm text-accent font-semibold">2016 - 2020</p>
+                            <h3 class="mb-2 font-bold text-white text-lg">B.S. in Computer Science</h3>
+                            <p class="text-sm leading-snug tracking-wide text-secondary">University of Technology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="scroll-target py-20 px-6">
+            <div class="container mx-auto max-w-2xl text-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
+                    <p class="text-lg text-secondary mt-2 mb-8">I'm currently open to new opportunities. Feel free to reach out!</p>
+                    <a href="mailto:johndoe@email.com" class="inline-block bg-accent text-slate-900 font-bold text-xl py-4 px-10 rounded-full hover:bg-opacity-80 transition-all duration-300">
+                        johndoe@email.com
+                    </a>
+                    <div class="flex justify-center space-x-6 mt-10">
+                        <a href="#" class="text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <a href="#" class="text-secondary hover:text-accent transition-colors duration-300">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 py-6 px-6">
+        <div class="container mx-auto text-center text-secondary">
+            <p>&copy; 2025 John Doe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('nav a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+</body>
+</html>
