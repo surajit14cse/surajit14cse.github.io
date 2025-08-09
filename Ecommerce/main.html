@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BabyCare E-commerce Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-30 bg-white shadow">
+        <div class="flex items-center justify-between px-4 py-2">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-pink-500">👶 BabyCare</span>
+            </div>
+            <!-- Search Bar -->
+            <div class="flex-1 mx-4">
+                <input type="text" placeholder="Search for products..." class="w-full px-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-200 transition">
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center space-x-6 text-lg">
+                <button class="hover:text-pink-500 transition flex items-center"><span class="mr-1">👤</span> <span class="hidden sm:inline">Login/Register</span></button>
+                <button class="hover:text-pink-500 transition relative"><span>♥</span></button>
+                <button id="cart-btn" class="hover:text-pink-500 transition relative">
+                    <span>🛒</span>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs rounded-full px-1">0</span>
+                </button>
+            </div>
+        </div>
+        <!-- Navigation Bar -->
+        <nav class="bg-pink-50 border-t border-b border-pink-100">
+            <div class="flex flex-wrap justify-center space-x-4 py-2 text-sm font-medium">
+                <a href="#" class="hover:text-pink-500 transition">Diapering & Wipes</a>
+                <a href="#" class="hover:text-pink-500 transition">Feeding</a>
+                <a href="#" class="hover:text-pink-500 transition">Toys</a>
+                <a href="#" class="hover:text-pink-500 transition">Bath & Skin</a>
+                <a href="#" class="hover:text-pink-500 transition">Health & Safety</a>
+                <a href="#" class="hover:text-pink-500 transition">Moms & Maternity</a>
+                <a href="#" class="hover:text-pink-500 transition">Clothing</a>
+                <a href="#" class="hover:text-pink-500 transition">More</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="relative w-full max-w-7xl mx-auto mt-4">
+        <div id="hero-carousel" class="overflow-hidden rounded-lg shadow-lg">
+            <div id="hero-slides" class="flex transition-transform duration-700">
+                <!-- Slides injected by JS -->
+            </div>
+            <!-- Carousel Controls -->
+            <button id="hero-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-pink-100 transition">&#8592;</button>
+            <button id="hero-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-pink-100 transition">&#8594;</button>
+            <div id="hero-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto mt-8 space-y-12">
+
+        <!-- Featured Products -->
+        <section>
+            <h2 class="text-xl font-semibold mb-4">Featured Products</h2>
+            <div id="featured-products" class="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
+                <!-- Product cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- Feeding Essentials -->
+        <section>
+            <h2 class="text-xl font-semibold mb-4">Feeding Essentials</h2>
+            <div id="feeding-products" class="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
+                <!-- Product cards injected by JS -->
+            </div>
+        </section>
+
+        <!-- Brand Logos Carousel -->
+        <section>
+            <h2 class="text-xl font-semibold mb-4">Our Brands</h2>
+            <div class="relative">
+                <div id="brand-carousel" class="flex space-x-8 overflow-x-auto scrollbar-hide items-center py-4">
+                    <!-- Brand logos injected by JS -->
+                </div>
+                <button id="brand-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-pink-100 transition">&#8592;</button>
+                <button id="brand-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow hover:bg-pink-100 transition">&#8594;</button>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8"></section>
+            <div class="flex items-center space-x-4 bg-white rounded-lg shadow p-4"></div>
+                <span class="text-3xl text-pink-400">🚚</span>
+                <div>
+                    <div class="font-semibold">Fast Delivery</div>
+                    <div class="text-sm text-gray-500">Get your order in 24 hours</div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 bg-white rounded-lg shadow p-4"></div>
+                <span class="text-3xl text-pink-400">💳</span>
+                <div>
+                    <div class="font-semibold">Secure Payments</div>
+                    <div class="text-sm text-gray-500">100% secure payment</div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4 bg-white rounded-lg shadow p-4"></div>
+                <span class="text-3xl text-pink-400">📞</span>
+                <div>
+                    <div class="font-semibold">24/7 Support</div>
+                    <div class="text-sm text-gray-500">We are here for you</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t border-gray-200"></footer>
+        <div class="max-w-7xl mx-auto py-8 px-4 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div>
+                <div class="font-bold text-pink-500 mb-2">Customer Service</div>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-pink-500">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-pink-500">Order Tracking</a></li>
+                    <li><a href="#" class="hover:text-pink-500">Returns</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-bold text-pink-500 mb-2">Company</div>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="#" class="hover:text-pink-500">About Us</a></li>
+                    <li><a href="#" class="hover:text-pink-500">Careers</a></li>
+                    <li><a href="#" class="hover:text-pink-500">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="font-bold text-pink-500 mb-2">Follow Us</div>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-pink-500">🌐</a>
+                    <a href="#" class="hover:text-pink-500">📘</a>
+                    <a href="#" class="hover:text-pink-500">🐦</a>
+                    <a href="#" class="hover:text-pink-500">📸</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-gray-400 py-4 border-t">© 2024 BabyCare. All rights reserved.</div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Data
+        const heroBanners = [
+            { img: 'https://via.placeholder.com/1200x350/FFB6C1/fff?text=Promo+1', alt: 'Promo 1' },
+            { img: 'https://via.placeholder.com/1200x350/FFD1DC/333?text=Promo+2', alt: 'Promo 2' },
+            { img: 'https://via.placeholder.com/1200x350/FFF0F5/333?text=Promo+3', alt: 'Promo 3' }
+        ];
+
+        const products = [
+            // Featured
+            { id: 1, name: "Baby Diapers", price: 1200, discountedPrice: 999, image: "https://via.placeholder.com/200x200/FFD1DC/333?text=Diaper", rating: 4.5, featured: true, feeding: false },
+            { id: 2, name: "Baby Wipes", price: 400, discountedPrice: 350, image: "https://via.placeholder.com/200x200/FFF0F5/333?text=Wipes", rating: 4, featured: true, feeding: false },
+            { id: 3, name: "Feeding Bottle", price: 600, discountedPrice: 500, image: "https://via.placeholder.com/200x200/FFB6C1/333?text=Bottle", rating: 5, featured: true, feeding: true },
+            { id: 4, name: "Baby Food", price: 800, discountedPrice: 700, image: "https://via.placeholder.com/200x200/FFD1DC/333?text=Food", rating: 4.2, featured: true, feeding: true },
+            { id: 5, name: "Teething Toy", price: 300, discountedPrice: 250, image: "https://via.placeholder.com/200x200/FFF0F5/333?text=Toy", rating: 4.8, featured: true, feeding: false },
+            // Feeding
+            { id: 6, name: "Sippy Cup", price: 350, discountedPrice: 300, image: "https://via.placeholder.com/200x200/FFD1DC/333?text=Cup", rating: 4.1, featured: false, feeding: true },
+            { id: 7, name: "Nursing Pillow", price: 900, discountedPrice: 850, image: "https://via.placeholder.com/200x200/FFB6C1/333?text=Pillow", rating: 4.7, featured: false, feeding: true },
+            { id: 8, name: "Baby Spoon Set", price: 200, discountedPrice: 180, image: "https://via.placeholder.com/200x200/FFF0F5/333?text=Spoon", rating: 4.3, featured: false, feeding: true }
+        ];
+
+        const brands = [
+            { name: "Brand A", logo: "https://via.placeholder.com/100x50/FFD1DC/333?text=Brand+A" },
+            { name: "Brand B", logo: "https://via.placeholder.com/100x50/FFF0F5/333?text=Brand+B" },
+            { name: "Brand C", logo: "https://via.placeholder.com/100x50/FFB6C1/333?text=Brand+C" },
+            { name: "Brand D", logo: "https://via.placeholder.com/100x50/FFD1DC/333?text=Brand+D" },
+            { name: "Brand E", logo: "https://via.placeholder.com/100x50/FFF0F5/333?text=Brand+E" },
+            { name: "Brand F", logo: "https://via.placeholder.com/100x50/FFB6C1/333?text=Brand+F" }
+        ];
+
+        // Cart State
+        let cartCount = 0;
+
+        // --- Hero Carousel ---
+        let heroIndex = 0;
+        const heroSlides = document.getElementById('hero-slides');
+        const heroDots = document.getElementById('hero-dots');
+
+        function renderHeroSlides() {
+            heroSlides.innerHTML = heroBanners.map(b => `<img src="${b.img}" alt="${b.alt}" class="w-full min-w-full h-[200px] sm:h-[350px] object-cover">`).join('');
+            heroDots.innerHTML = heroBanners.map((_, i) =>
+                `<button class="w-3 h-3 rounded-full mx-1 ${i === heroIndex ? 'bg-pink-500' : 'bg-pink-200'}" data-index="${i}"></button>`
+            ).join('');
+            heroSlides.style.transform = `translateX(-${heroIndex * 100}%)`;
+        }
+        function nextHero() { heroIndex = (heroIndex + 1) % heroBanners.length; renderHeroSlides(); }
+        function prevHero() { heroIndex = (heroIndex - 1 + heroBanners.length) % heroBanners.length; renderHeroSlides(); }
+        document.getElementById('hero-next').onclick = nextHero;
+        document.getElementById('hero-prev').onclick = prevHero;
+        heroDots.onclick = e => {
+            if (e.target.tagName === 'BUTTON') {
+                heroIndex = +e.target.dataset.index;
+                renderHeroSlides();
+            }
+        };
+        setInterval(nextHero, 5000);
+
+        // --- Product Cards ---
+        function renderProductCard(p) {
+            return `
+                <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 w-56 flex-shrink-0 group">
+                    <div class="relative">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-32 object-cover rounded mb-2">
+                        <button class="absolute top-2 right-2 text-pink-400 hover:text-pink-600 text-xl" title="Add to Wishlist">♥</button>
+                    </div>
+                    <div class="font-semibold text-base mb-1">${p.name}</div>
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-pink-500 font-bold text-lg">৳${p.discountedPrice}</span>
+                        ${p.discountedPrice < p.price ? `<span class="line-through text-gray-400 text-sm">৳${p.price}</span>` : ''}
+                    </div>
+                    <div class="flex items-center mb-2">
+                        ${'★'.repeat(Math.floor(p.rating))}${p.rating % 1 >= 0.5 ? '½' : ''}
+                        <span class="ml-1 text-xs text-gray-400">(${p.rating})</span>
+                    </div>
+                    <button class="w-full bg-pink-500 text-white py-1 rounded hover:bg-pink-600 transition add-to-cart" data-id="${p.id}">Add to Cart</button>
+                </div>
+            `;
+        }
+        function renderProducts(sectionId, filterFn) {
+            document.getElementById(sectionId).innerHTML =
+                products.filter(filterFn).map(renderProductCard).join('');
+        }
+
+        // --- Brand Carousel ---
+        const brandCarousel = document.getElementById('brand-carousel');
+        function renderBrands() {
+            brandCarousel.innerHTML = brands.map(b =>
+                `<div class="flex-shrink-0 w-32 h-16 flex items-center justify-center bg-white rounded shadow hover:shadow-lg transition">
+                    <img src="${b.logo}" alt="${b.name}" class="max-h-10 max-w-[80px] object-contain">
+                </div>`
+            ).join('');
+        }
+        document.getElementById('brand-next').onclick = () => {
+            brandCarousel.scrollBy({ left: 160, behavior: 'smooth' });
+        };
+        document.getElementById('brand-prev').onclick = () => {
+            brandCarousel.scrollBy({ left: -160, behavior: 'smooth' });
+        };
+
+        // --- Cart Logic ---
+        document.body.addEventListener('click', function(e) {
+            if (e.target.classList.contains('add-to-cart')) {
+                cartCount++;
+                document.getElementById('cart-count').textContent = cartCount;
+                e.target.textContent = "Added!";
+                setTimeout(() => { e.target.textContent = "Add to Cart"; }, 1000);
+            }
+        });
+
+        // --- Initial Render ---
+        renderHeroSlides();
+        renderProducts('featured-products', p => p.featured);
+        renderProducts('feeding-products', p => p.feeding);
+        renderBrands();
+
+        // Responsive: re-render hero on resize for correct height
+        window.addEventListener('resize', renderHeroSlides);
+    </script>
+</body>
+</html>
